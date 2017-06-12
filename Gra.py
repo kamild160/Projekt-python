@@ -1,12 +1,17 @@
+import random, pygame, sys, pygame.mixer
+from pygame.locals import *
 from livewires import games, color
-
-import random
-
-
 
 
 
 games.init(screen_width = 800, screen_height = 600, fps = 50)
+
+global zegar_fps, mapa, czcionka
+pygame.init()
+pygame.display.set_caption('Faling stars ')
+	
+
+
 
 
 
@@ -36,7 +41,7 @@ class Pan(games.Sprite):
 
         
 
-        self.score = games.Text(value = 0, size = 25, color = color.white,
+        self.score = games.Text(value = 0, size = 30, color = color.white,
 
                                 top = 5, right = games.screen.width - 10)
 
@@ -104,7 +109,23 @@ class Pan(games.Sprite):
             
            
            
-            
+    def pause():
+
+        paused = True
+
+        while paused:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_c:
+                        paused = False
+
+                    elif event.key == pygame.K_q:
+                       pygame.quit()
+                       quit()         
 
 		 
     
@@ -125,12 +146,13 @@ class Pizza(games.Sprite):
 
     image = games.load_image("pizza.bmp")
 
-    speed = 1.5  
-    
-    
-		
-
-
+    speed = 1.5 
+     
+   
+				
+        
+       
+       
     def __init__(self, x, y = 90):
 
         """ Inicjalizuj obiekt klasy Pizza. """
@@ -268,14 +290,13 @@ class box(games.Sprite):
 def main():
 
     """ Uruchom grę. """
-    
-    
-    
-    
+   
+   
+  
+ 
     wall_image = games.load_image("sciana.jpg", transparent = False)
     
-   
-
+ 
 
 	
 
@@ -296,7 +317,7 @@ def main():
 
     games.mouse.is_visible = False
 
-
+   
 
     games.screen.event_grab = True
 
