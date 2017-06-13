@@ -21,7 +21,7 @@ class Pan(games.Sprite):
 
     """
 
-    Patelnia sterowana przez gracza służąca do łapania spadających pizz.
+    kosz sterowana przez gracza służąca do łapania spadających pizz.
 
     """
 
@@ -75,12 +75,11 @@ class Pan(games.Sprite):
 
     def check_catch(self):
 
-        """ Sprawdź, czy nie zostały złapane jakieś pizze. """
+        """ Sprawdź, czy nie zostały złapane jakieś gwiazdy. """
         
 
         for pizza in self.overlapping_sprites:
-           
-            sound = games.load_sound("pocisk.wav")
+         
             self.score.value += 10          
             self.score.right = games.screen.width - 10 
             
@@ -107,40 +106,14 @@ class Pan(games.Sprite):
 
             
             
-           
-           
-    def pause():
-
-        paused = True
-
-        while paused:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    quit()
-
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_c:
-                        paused = False
-
-                    elif event.key == pygame.K_q:
-                       pygame.quit()
-                       quit()         
-
-		 
-    
-            
-            
-
-
-
-
-
+        
+          
+      
 class Pizza(games.Sprite):
 
     """
 
-    Pizza, która spada na ziemię.
+    gwiazda, która spada na ziemię.
 
     """ 
 
@@ -215,7 +188,7 @@ class box(games.Sprite):
 
     """
 
-    pudełko, który porusza się w lewo i w prawo, zrzucając pizze.
+    pudełko, który porusza się w lewo i w prawo, zrzucając gwiazde.
 
     """
 
@@ -265,7 +238,7 @@ class box(games.Sprite):
 
     def check_drop(self):
 
-        """ Zmniejsz licznik odliczający czas lub zrzuć pizzę i zresetuj odliczanie. """
+        """ Zmniejsz licznik odliczający czas lub zrzuć gwiazde i zresetuj odliczanie. """
 
         if self.time_til_drop > 0:
 
